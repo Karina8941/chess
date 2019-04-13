@@ -12,27 +12,21 @@ void convert(char s[])
 void move(char* dos[])
 {
     char s[6];
-    for (int i = 1; true; i++) {
-        1 : do
-        {
-            cout << i << ":";
-            cin >> s;
-            if (s[5] != '\0')
-                cout << "Error input" << endl;
-        }
-        while (s[5] == '\0');
-        convert(s);
+    1 : cin >> s;
+    if (s[5] != '\0')
+        cout << "Error input" << endl;
+    convert(s);
 
-        for (int i = 0; i < 5; i++) {
-            if (!(s[i] >= 49 && s[i] <= 56)) {
-                cout << "Error input" << endl;
-                goto 1;
-            }
-            if (i == 1)
-                i++;
+    for (int i = 0; i < 5; i++) {
+        if (!(s[i] >= 49 && s[i] <= 56)) {
+            cout << "Error input" << endl;
+            goto 1;
         }
-
-        if (s[0] == s[3] && (s[4] - s[1] == 1 || (s[0] == 1 && s[4] - s[1] == 2)))
-            swap(dos[(char)s[1]][(char)s[0]], dos[(char)s[4]][(char)s[3]]);
+        if (i == 1)
+            i++;
     }
+
+    if (s[0] == s[3] && (s[4] - s[1] == 1 || (s[0] == 1 && s[4] - s[1] == 2)))
+        swap(dos[(char)s[1]][(char)s[0]], dos[(char)s[4]][(char)s[3]]);
+}
 }
