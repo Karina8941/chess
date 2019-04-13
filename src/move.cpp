@@ -32,4 +32,3 @@ L:
         swap(dos[(int)(char)s[1]][(int)(char)s[0]],
              dos[(int)(char)s[4]][(int)(char)s[3]]);
 }
-}
