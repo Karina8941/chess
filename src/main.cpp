@@ -5,8 +5,9 @@ using namespace std;
 
 int main()
 {
-    char dos[8][8];
-    for (int i = 0; i < 8; i++)
+    char** dos = new char*[8];
+    for (int i = 0; i < 8; i++) {
+        dos[i] = new char[8];
         for (int j = 0; j < 8; j++) {
             if (i == 1)
                 dos[i][j] = 'p';
@@ -35,6 +36,7 @@ int main()
             else
                 dos[i][j] = '0';
         }
+    }
     print(dos);
     while (true) {
         move(dos);
