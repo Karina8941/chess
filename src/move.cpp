@@ -9,7 +9,7 @@ void convert(char s[])
     }
 }
 
-void move()
+void move(char* dos[])
 {
     char s[6];
     for (int i = 1; true; i++) {
@@ -31,5 +31,8 @@ void move()
             if (i == 1)
                 i++;
         }
+
+        if (s[0] == s[3] && (s[4] - s[1] == 1 || (s[0] == 1 && s[4] - s[1] == 2)))
+            swap(dos[(char)s[1]][(char)s[0]], dos[(char)s[4]][(char)s[3]]);
     }
 }
