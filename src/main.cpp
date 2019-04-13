@@ -35,5 +35,10 @@ int main()
             else
                 dos[i][j] = '0';
         }
+    print(dos);
+    while (true) {
+        move(dos);
+        print(dos);
+    }
     system("pause");
 }
