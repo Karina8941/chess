@@ -57,7 +57,29 @@ int main()
                 i++;
         }
 
-        move(dos, s);
+        switch (dos[(int)s[1]][(int)s[0]])
+        {
+            case 'p':case 'P':
+                        move(dos, s);
+                break;
+        case 'l': case'L':
+        rook(dos, s);
+        break;
+        case 'k':case 'K':
+        horse(dos,s);
+        break;
+        case 's': case'S':
+        elephant(dos, s);
+        break;
+        case 'f': case'F':
+        quin(dos, s);
+        break;
+        case 'q':case 'Q':
+        king(dos, s);
+        break;
+            default:
+                break;
+        }
         print(dos);
     }
     system("pause");
