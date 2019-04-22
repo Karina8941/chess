@@ -1,14 +1,16 @@
-﻿all: main
+﻿: main
 .PHONY: clean 
 
-main: convert.o elephant.o hourse.o king.o move.o output.o quin.o rook.o
-	g++ build/src/convert.o build/src/elephant.o build/src/hourse.o build/src/king.o build/src/move.o build/src/output.o build/src/quin.o build/src/rook.o -Wall -Werror -lm -o bin/Chess
+main: prog.o convert.o elephant.o hourse.o king.o move.o output.o quin.o rook.o
+	g++ build/src/prog.o build/src/convert.o build/src/elephant.o build/src/hourse.o build/src/king.o build/src/move.o build/src/output.o build/src/quin.o build/src/rook.o -Wall -Werror -lm -o bin/Chess
+prog.o: src/prog.cpp
+	g++ src/prog.cpp -o build/src/prog.o -c -Wall -lm
 convert.o: src/convert.cpp
-	g++ src/convert.cpp -o build/srcconvert.o -c -Wall -Werror -lm
+	g++ src/convert.cpp -o build/src/convert.o -c -Wall -Werror -lm
 elephant.o: src/elephant.cpp
 	g++  src/elephant.cpp -o build/src/elephant.o -c -Wall -Werror -lm
 hourse.o: src/hourse.cpp
-	g++ src/horse.cpp -o build/src/hourse.o -c -Wall -Werror -lm
+	g++ src/hourse.cpp -o build/src/hourse.o -c -Wall -Werror -lm
 king.o: src/king.cpp
 	g++ src/king.cpp -o build/src/king.o -c -Wall -lm
 move.o: src/move.cpp
@@ -44,4 +46,4 @@ build/test/rook.o: src/rook.cpp src/foo.h
 	g++ -Wall -Werror -c -I thirdparty -I src src/rook.cpp -o build/test/rook.o
 
 clean:
-rm -rf build/*.o bin/Chess
+	rm -rf build/*.o bin/Chess
