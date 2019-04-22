@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+    char s[5];
     char** dos = new char*[8];
     for (int i = 0; i < 8; i++) {
         dos[i] = new char[8];
@@ -39,7 +40,24 @@ int main()
     }
     print(dos);
     while (true) {
-        move(dos);
+    L:
+        cin >> s;
+        if (s[5] != '\0') {
+            cout << "Error input" << endl;
+            goto L;
+        }
+        convert(s);
+
+        for (int i = 0; i < 5; i++) {
+            if (!(s[i] >= 49 && s[i] <= 56)) {
+                cout << "Error input" << endl;
+                goto L;
+            }
+            if (i == 1)
+                i++;
+        }
+
+        move(dos, s);
         print(dos);
     }
     system("pause");

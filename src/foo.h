@@ -1,7 +1,7 @@
 #ifndef _EST_ETOT_FOO
 #define _EST_ETOT_FOO
 
-void move(char* dos[]);
+void move(char* dos[], char s[]);
 
 void convert(char s[]);
 
