@@ -46,4 +46,4 @@ build/test/rook.o: src/rook.cpp src/foo.h
 	g++ -Wall -Werror -c -I thirdparty -I src src/rook.cpp -o build/test/rook.o
 
 clean:
-	rm -rf build/*.o bin/Chess
+	rm -rf build/src/*.o bin/chess
