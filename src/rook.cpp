@@ -1,5 +1,7 @@
 #include "foo.h"
 #include <iostream>
+#include <cmath.h>
+#include <stdlib.h>
 
 void rook(char* dos[], char s[])
 {
