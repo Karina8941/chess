@@ -2,5 +2,4 @@
 *~
 *.json
 *chess
-*.vscode
 *bin/test/test
