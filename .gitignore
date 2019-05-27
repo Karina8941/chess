@@ -1,6 +1,6 @@
-*.o
-/.*.c.swp
-/*.c~
-/#*#
-/Chess
-/Chess_test
+*.[oa]
+*~
+*.json
+*chess
+*.vscode
+*bin/test/test
