@@ -1,2 +1,6 @@
 *.o
-*.exe
+/.*.c.swp
+/*.c~
+/#*#
+/Chess
+/Chess_test
