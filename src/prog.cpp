@@ -87,5 +87,4 @@ int main()
         }
         print(dos);
     }
-    system("pause");
 }
