@@ -206,7 +206,7 @@ void check(char deck[8][8], int test)
             make_move(deck, moveint);
         }
     }
-    
+
     else if (
             ((moveint[0]) > 0) && ((moveint[0]) < 10) && ((moveint[1]) > 0)
             && ((moveint[1]) < 10) && ((moveint[2]) > 0) && ((moveint[2]) < 10)
@@ -260,7 +260,6 @@ void check(char deck[8][8], int test)
             }
         }
         Counter = 0;
-        
 
         if ((((deck[moveint[1]][moveint[0]] == 'P') && (move[3] - move[1] == 1))
              || ((deck[moveint[1]][moveint[0]] == 'p')
