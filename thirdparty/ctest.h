@@ -395,12 +395,12 @@ void assert_fail(const char* caller, int line) {
 }
 
 
-static int suite_all(ctest* t) {
+static int suite_all(struct ctest* t) {
     (void) t; // fix unused parameter warning
     return 1;
 }
 
-static int suite_filter(ctest* t) {
+static int suite_filter(struct ctest* t) {
     return strncmp(suite_name, t->ssname, strlen(suite_name)) == 0;
 }
 
@@ -462,22 +462,22 @@ int ctest_main(int argc, const char *argv[])
 #endif
     uint64_t t1 = getCurrentTime();
 
-    ctest* ctest_begin = &CTEST_IMPL_TNAME(suite, test);
-    ctest* ctest_end = &CTEST_IMPL_TNAME(suite, test);
+    struct ctest* ctest_begin = &CTEST_IMPL_TNAME(suite, test);
+    struct ctest* ctest_end = &CTEST_IMPL_TNAME(suite, test);
     // find begin and end of section by comparing magics
     while (1) {
-        ctest* t = ctest_begin-1;
+        struct ctest* t = ctest_begin-1;
         if (t->magic != CTEST_IMPL_MAGIC) break;
         ctest_begin--;
     }
     while (1) {
-        ctest* t = ctest_end+1;
+        struct ctest* t = ctest_end+1;
         if (t->magic != CTEST_IMPL_MAGIC) break;
         ctest_end++;
     }
     ctest_end++;    // end after last one
 
-    ctest* test;
+    static struct ctest* test;
     for (test = ctest_begin; test != ctest_end; test++) {
         if (test == &CTEST_IMPL_TNAME(suite, test)) continue;
         if (filter(test)) total++;
@@ -499,7 +499,7 @@ int ctest_main(int argc, const char *argv[])
                 if (result == 0) {
                     if (test->setup && *test->setup) (*test->setup)(test->data);
                     if (test->data)
-                        test->run();
+                        test->run(test->data);
                     else
                         test->run();
                     if (test->teardown && *test->teardown) (*test->teardown)(test->data);
@@ -531,4 +531,3 @@ int ctest_main(int argc, const char *argv[])
 #endif
 
 #endif
-

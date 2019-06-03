@@ -1,5 +1,7 @@
-*.[oa]
+*.o
+*.swp
+*.a
 *~
-*.json
-*chess
-*bin/test/test
+*.exe
+compile
+compile_test

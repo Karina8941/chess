@@ -1,6 +1,10 @@
-language: cpp
+language: c++
+
+script:
+  - make
+  - git ls-files src/ | xargs clang-format -i && git diff --exit-code
+
+compiler: g++
+
 dist: xenial
-script: 
-  - git ls-files src/ | xargs clang-format -i && git diff --exit-code && make && make test && ./bin/test/test
-compiler:
-  - g++
+
